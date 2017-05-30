@@ -122,6 +122,11 @@ class Controller {
   isModified() {
     return this.initialValue !== this.getValue();
   }
+
+  borderColor(color) {
+    this.__li.style.borderLeftColor = color;
+    return this;
+  }
 }
 
 export default Controller;

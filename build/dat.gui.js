@@ -1149,6 +1149,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	    return this.initialValue !== this.getValue();
 	  };
 	
+	  Controller.prototype.borderColor = function borderColor(color) {
+	    this.__li.style.borderLeftColor = color;
+	    return this;
+	  };
+	
 	  return Controller;
 	}();
 	
@@ -3658,7 +3663,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	  if (params.before instanceof _Controller2.default) {
 	    params.before = params.before.__li;
 	  }
-	
 	  recallSavedValue(gui, controller);
 	
 	  _dom2.default.addClass(controller.domElement, 'c');
