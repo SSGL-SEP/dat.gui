@@ -34,7 +34,9 @@
 
     gui.add(obj, 'message');
     gui.add(obj, 'displayOutline');
-    var controller = gui.add(obj, 'explode').borderColor("red");
+    var controller = gui.add(obj, 'explode').borderColor("red").borderWidth(10);
+    console.log(controller.__li.style);
+
   
     
 

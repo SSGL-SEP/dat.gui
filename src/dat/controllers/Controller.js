@@ -127,6 +127,12 @@ class Controller {
     this.__li.style.borderLeftColor = color;
     return this;
   }
+
+  borderWidth(px) {
+    this.__li.style.borderLeftWidth = px + 'px';
+    return this;
+  }
+
 }
 
 export default Controller;
