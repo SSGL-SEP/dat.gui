@@ -750,6 +750,16 @@ common.extend(
       }
     },
 
+    delete: function() {
+      const opt = gui.__preset_select[gui.__preset_select.selectedIndex];
+      console.log(opt);
+      deletePresetOption(this, opt);
+      console.log(this.load);
+      delete this.load.remembered[this.preset];
+      this.preset = DEFAULT_DEFAULT_PRESET_NAME;
+      this.saveToLocalStorageIfPossible();
+    },
+
     listen: function (controller) {
       const init = this.__listening.length === 0;
       this.__listening.push(controller);
@@ -1056,6 +1066,12 @@ function addPresetOption(gui, name, setSelected) {
   }
 }
 
+function deletePresetOption(gui, name) {
+  console.log(name);
+  gui.__preset_select.removeChild(name);
+  gui.__preset_select.selectedIndex = 0;
+}
+
 function showHideExplain(gui, explain) {
   explain.style.display = gui.useLocalStorage ? 'block' : 'none';
 }
@@ -1089,6 +1105,11 @@ function addSaveMenu(gui) {
   dom.addClass(button3, 'button');
   dom.addClass(button3, 'revert');
 
+  const button4 = document.createElement('span');
+  button4.innerHTML = 'Delete';
+  dom.addClass(button4, 'button');
+  dom.addClass(button4, 'delete');
+
   const select = gui.__preset_select = document.createElement('select');
 
   if (gui.load && gui.load.remembered) {
@@ -1112,6 +1133,7 @@ function addSaveMenu(gui) {
   div.appendChild(button);
   div.appendChild(button2);
   div.appendChild(button3);
+  div.appendChild(button4);
 
   if (SUPPORTS_LOCAL_STORAGE) {
     const explain = document.getElementById('dg-local-explain');
@@ -1161,6 +1183,12 @@ function addSaveMenu(gui) {
 
   dom.bind(button3, 'click', function () {
     gui.revert();
+  });
+
+  dom.bind(button4, 'click', function () {
+    if (confirm('Are you sure you want to delete this preset?')) {
+      gui.delete();
+    }
   });
 
   // div.appendChild(button2);
