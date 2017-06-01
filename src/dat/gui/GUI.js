@@ -28,6 +28,7 @@ import common from '../utils/common';
 import styleSheet from './style.scss'; // CSS to embed in build
 
 css.inject(styleSheet);
+// var scope = this;
 
 /** Outer-most className for GUI's */
 const CSS_NAMESPACE = 'dg';
@@ -755,7 +756,7 @@ common.extend(
         alert("Default preset can't be deleted.");
         return;
       }
-      const opt = gui.__preset_select[gui.__preset_select.selectedIndex];
+      const opt = this.__preset_select[this.__preset_select.selectedIndex];
       deletePresetOption(this, opt);
       delete this.load.remembered[this.preset];
       this.preset = DEFAULT_DEFAULT_PRESET_NAME;

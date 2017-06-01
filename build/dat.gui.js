@@ -2714,6 +2714,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	// CSS to embed in build
 	
 	_css2.default.inject(_style2.default);
+	// var scope = this;
 	
 	/** Outer-most className for GUI's */
 	var CSS_NAMESPACE = 'dg';
@@ -3427,7 +3428,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      alert("Default preset can't be deleted.");
 	      return;
 	    }
-	    var opt = gui.__preset_select[gui.__preset_select.selectedIndex];
+	    var opt = this.__preset_select[this.__preset_select.selectedIndex];
 	    deletePresetOption(this, opt);
 	    delete this.load.remembered[this.preset];
 	    this.preset = DEFAULT_DEFAULT_PRESET_NAME;
