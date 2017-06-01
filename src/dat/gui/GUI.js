@@ -751,10 +751,12 @@ common.extend(
     },
 
     delete: function() {
+      if (this.preset === DEFAULT_DEFAULT_PRESET_NAME) {
+        alert("Default preset can't be deleted.");
+        return;
+      }
       const opt = gui.__preset_select[gui.__preset_select.selectedIndex];
-      console.log(opt);
       deletePresetOption(this, opt);
-      console.log(this.load);
       delete this.load.remembered[this.preset];
       this.preset = DEFAULT_DEFAULT_PRESET_NAME;
       this.saveToLocalStorageIfPossible();
@@ -1067,7 +1069,6 @@ function addPresetOption(gui, name, setSelected) {
 }
 
 function deletePresetOption(gui, name) {
-  console.log(name);
   gui.__preset_select.removeChild(name);
   gui.__preset_select.selectedIndex = 0;
 }
