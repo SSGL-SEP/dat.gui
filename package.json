@@ -8,9 +8,25 @@
   },
   "browserify": {
     "transform": [
-      ["babelify", { "presets": ["es2015"] }],
-      ["stringify", { "extensions": [".html"] }],
-      ["sassify"]
+      [
+        "babelify",
+        {
+          "presets": [
+            "es2015"
+          ]
+        }
+      ],
+      [
+        "stringify",
+        {
+          "extensions": [
+            ".html"
+          ]
+        }
+      ],
+      [
+        "sassify"
+      ]
     ]
   },
   "scripts": {
