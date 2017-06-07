@@ -164,7 +164,8 @@
   .dg .selector.drag {
     display: block; }
   .dg li.save-row {
-    padding: 0; }
+    padding: 0;
+    position: absolute; }
     .dg li.save-row .button {
       display: inline-block;
       padding: 0px 6px; }
