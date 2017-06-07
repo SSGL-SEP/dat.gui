@@ -165,7 +165,8 @@
     display: block; }
   .dg li.save-row {
     padding: 0;
-    position: fixed; }
+    position: fixed;
+    margin-bottom: 27px; }
     .dg li.save-row .button {
       display: inline-block;
       padding: 0px 6px; }
