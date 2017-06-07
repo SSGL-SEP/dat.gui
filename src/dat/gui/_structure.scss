@@ -246,8 +246,7 @@ $button-height: 20px;
   li.save-row {
 
     padding: 0;
-    position: fixed;
-    margin-bottom:$row-height;
+    position: sticky;
 
     .button {
       display: inline-block;
